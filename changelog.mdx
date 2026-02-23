@@ -1,0 +1,175 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and new features released in Claim Clarity.
+---
+
+## Recent Updates
+
+Stay informed about all Claim Clarity releases. Check this page regularly for the latest version information, new features, improvements, and resolved issues.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added AI-powered claim denial prediction with 95% accuracy on historical data
+- Introduced bulk claim upload supporting CSV and PDF formats
+- New dashboard widgets for denial trends and resolution times
+
+## Improvements
+
+- Enhanced search functionality with fuzzy matching for claim notes
+- Optimized API response times by 40% for high-volume queries
+
+## Bug Fixes
+
+- Fixed intermittent failures in webhook delivery for claim status updates
+- Resolved UI rendering issues on mobile devices
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated webhook support for real-time claim status notifications
+- Added export options for audit reports in PDF and Excel formats
+
+## Bug Fixes
+
+- Corrected calculation errors in appeal success probability metrics
+- Fixed authentication token refresh issues during long sessions
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core claim analysis engine with OCR for document extraction
+- User dashboard for tracking claim progress and metrics
+- API endpoints for programmatic claim submissions
+
+## Breaking Changes
+
+- Updated authentication to use JWT tokens instead of API keys
+- Migrated endpoint paths from `/v1/claims` to `/v2/claims`
+
+</Update>
+
+## Upcoming Features
+
+Preview what's coming next to Claim Clarity. These enhancements will further streamline your claims management workflow.
+
+<Columns cols={3}>
+
+<Card title="Multi-Language Support" icon="globe" href="/upcoming">
+
+Enable claim processing in Spanish, French, and German.
+
+</Card>
+
+<Card title="Advanced Analytics" icon="bar-chart-3" href="/upcoming">
+
+AI-driven insights into payer-specific denial patterns.
+
+</Card>
+
+<Card title="Team Collaboration" icon="users" href="/upcoming">
+
+Real-time commenting and assignment on claims.
+
+</Card>
+
+</Columns>
+
+## How to Stay Updated
+
+<Callout kind="tip">
+
+Subscribe to our changelog feed or set up webhooks to receive notifications about new releases directly in your workflow.
+
+</Callout>
+
+Follow these steps to integrate changelog updates into your tools:
+
+<Steps>
+
+<Step title="Set Up Webhook" icon="zap">
+
+Configure a webhook endpoint to receive update payloads from `https://api.example.com/v1/webhooks/changelog`.
+
+````json
+{
+  "version": "1.2.0",
+  "tags": ["feature"],
+  "changes": ["New denial prediction"]
+}
+````
+
+</Step>
+
+<Step title="RSS Feed" icon="rss">
+
+Add this RSS feed to your reader: `https://docs.example.com/changelog.xml`.
+
+</Step>
+
+<Step title="API Polling" icon="refresh-cw">
+
+Query the latest version:
+
+<CodeGroup tabs="JavaScript,cURL">
+
+````javascript
+const response = await fetch('https://api.example.com/v1/releases/latest');
+const latest = await response.json();
+console.log(latest.version);
+````
+
+````bash
+curl https://api.example.com/v1/releases/latest \
+  -H "Authorization: Bearer YOUR_TOKEN"
+````
+
+</CodeGroup>
+
+</Step>
+
+</Steps>
+
+<Tabs>
+
+<Tab title="GitHub" icon="github">
+
+Follow our repository for commit updates and release notes.
+
+[View on GitHub](https://github.com/example/claim-clarity)
+
+</Tab>
+
+<Tab title="Email" icon="mail">
+
+Sign up for monthly release summaries.
+
+[Subscribe](https://claimclarity.ai/subscribe)
+
+</Tab>
+
+</Tabs>
+
+<Expandable title="Migration Guide for v1.2.0" default-open="false">
+
+Review these changes if upgrading from v1.1.x:
+
+- Update your API client to handle new `denialProbability` field in responses
+- Bulk upload now requires `fileType` parameter
+
+```javascript
+// New format
+const upload = {
+  file: claimFile,
+  fileType: 'csv' // or 'pdf'
+};
+```
+
+</Expandable>
