@@ -43,6 +43,11 @@
                 "title": "Integrations",
                 "path": "integrations",
                 "icon": "plug"
+              },
+              {
+                "title": "Brand & Design Strategy",
+                "path": "brand-design-strategy",
+                "icon": "palette"
               }
             ]
           }
